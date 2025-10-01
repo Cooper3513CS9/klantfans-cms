@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cases",
+  "info": {
+    "singularName": "case",
+    "pluralName": "cases",
+    "displayName": "Case",
+    "description": "Client cases en portfolio items"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "clientNaam": {
+      "type": "string",
+      "required": true
+    },
+    "emoji": {
+      "type": "string",
+      "default": "💼"
+    },
+    "branche": {
+      "type": "string",
+      "required": true
+    },
+    "brancheKleur": {
+      "type": "enumeration",
+      "enum": ["blue", "red", "green", "yellow", "purple", "orange", "pink"],
+      "default": "blue"
+    },
+    "probleem": {
+      "type": "richtext",
+      "required": true
+    },
+    "resultaat": {
+      "type": "richtext",
+      "required": true
+    },
+    "borderKleur": {
+      "type": "enumeration",
+      "enum": ["blue", "red", "green", "yellow", "purple", "orange", "pink"],
+      "default": "blue"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    },
+    "volgorde": {
+      "type": "integer",
+      "default": 0
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "clientNaam"
+    }
+  }
+}
+

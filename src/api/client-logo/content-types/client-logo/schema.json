@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "client_logos",
+  "info": {
+    "singularName": "client-logo",
+    "pluralName": "client-logos",
+    "displayName": "Client Logo"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "clientNaam": {
+      "type": "string",
+      "required": true
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "altText": {
+      "type": "string"
+    },
+    "linkUrl": {
+      "type": "string"
+    },
+    "volgorde": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}
+

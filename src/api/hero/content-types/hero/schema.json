@@ -1,0 +1,45 @@
+{
+  "kind": "singleType",
+  "collectionName": "hero",
+  "info": {
+    "singularName": "hero",
+    "pluralName": "heroes",
+    "displayName": "Hero Section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titel": {
+      "type": "string",
+      "required": true
+    },
+    "subtitel": {
+      "type": "text",
+      "required": true
+    },
+    "ctaTekst": {
+      "type": "string",
+      "default": "Plan uw Gratis Turnaround Gesprek"
+    },
+    "profielfoto": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "naam": {
+      "type": "string",
+      "default": "Ronald Beute"
+    },
+    "functie": {
+      "type": "string",
+      "default": "Commercieel Strateeg & Turnaround Specialist"
+    },
+    "bio": {
+      "type": "richtext"
+    }
+  }
+}
+

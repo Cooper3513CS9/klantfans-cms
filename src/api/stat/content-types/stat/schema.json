@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stats",
+  "info": {
+    "singularName": "stat",
+    "pluralName": "stats",
+    "displayName": "Stat"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "waarde": {
+      "type": "string",
+      "required": true
+    },
+    "volgorde": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}
+
