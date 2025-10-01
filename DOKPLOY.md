@@ -12,19 +12,49 @@ Complete stap-voor-stap instructies om dit Strapi CMS te deployen op Dokploy.
 
 ---
 
-## 📝 Stap 1: PostgreSQL Database aanmaken in Dokploy
+## 📝 Stap 1: Database Setup
 
-1. Log in op je Dokploy dashboard (bijv. `https://dokploy.jouwserver.nl`)
-2. Ga naar **"Databases"** → **"Create Database"**
-3. Kies **"PostgreSQL"**
-4. Configuratie:
+### ✅ Optie A: Bestaande PostgreSQL hergebruiken (AANBEVOLEN)
+
+**Heb je al een PostgreSQL container in Dokploy? Perfect!**
+
+1. Log in op je Dokploy dashboard
+2. Ga naar je **bestaande PostgreSQL database**
+3. Klik op **"Console"** of **"Shell"**
+4. Voer uit:
+   ```sql
+   CREATE DATABASE klantfans_cms;
+   ```
+5. Klaar! Noteer je bestaande PostgreSQL gegevens:
+   - **Internal Host**: (bijv. `postgres` of naam van je container)
+   - **Port**: `5432`
+   - **Database Name**: `klantfans_cms` ← Nieuwe database
+   - **Username**: (je bestaande PostgreSQL user)
+   - **Password**: (je bestaande PostgreSQL wachtwoord)
+
+**Waarom deze optie?**
+- ✅ Geen extra container nodig
+- ✅ Minder resources
+- ✅ Eenvoudiger beheer
+- ✅ PostgreSQL is gebouwd voor meerdere databases
+- ✅ 100% veilig gescheiden van je andere databases
+
+---
+
+### Optie B: Nieuwe PostgreSQL container aanmaken
+
+**Wil je toch een aparte PostgreSQL?**
+
+1. Ga naar **"Databases"** → **"Create Database"**
+2. Kies **"PostgreSQL"**
+3. Configuratie:
    - **Name**: `klantfans-cms-db`
    - **PostgreSQL Version**: `16`
    - **Database Name**: `strapi`
    - **Username**: `strapi`
    - **Password**: Kies een sterk wachtwoord (bijv. genereer via: `openssl rand -base64 32`)
-5. Klik **"Create"**
-6. **Noteer** de volgende gegevens:
+4. Klik **"Create"**
+5. **Noteer** de volgende gegevens:
    - Internal Host (bijv. `klantfans-cms-db`)
    - Port (`5432`)
    - Database naam (`strapi`)
@@ -74,14 +104,27 @@ HOST=0.0.0.0
 PORT=1337
 ```
 
-### Database Settings (gebruik je PostgreSQL gegevens uit Stap 1)
+### Database Settings
+
+**Als je Optie A koos (bestaande PostgreSQL):**
+```
+DATABASE_CLIENT=postgres
+DATABASE_HOST=<naam-van-je-bestaande-postgres-container>  # bijv. "postgres"
+DATABASE_PORT=5432
+DATABASE_NAME=klantfans_cms                               # De nieuwe database
+DATABASE_USERNAME=<je-bestaande-postgres-user>
+DATABASE_PASSWORD=<je-bestaande-postgres-password>
+DATABASE_SSL=false
+```
+
+**Als je Optie B koos (nieuwe PostgreSQL):**
 ```
 DATABASE_CLIENT=postgres
 DATABASE_HOST=klantfans-cms-db
 DATABASE_PORT=5432
 DATABASE_NAME=strapi
 DATABASE_USERNAME=strapi
-DATABASE_PASSWORD=<jouw-db-password>
+DATABASE_PASSWORD=<jouw-nieuwe-db-password>
 DATABASE_SSL=false
 ```
 
